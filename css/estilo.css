@@ -1,0 +1,55 @@
+html,body{
+margin:0px;
+padding:0px;
+height:100%;
+background: black;
+}
+
+.div {
+	width: 90%;
+	height: 98%;
+	background: black;
+	border: 5px solid #5DA423;
+	position: absolute;
+	top: 0%;
+
+}
+#div_lateral{
+	width: 7%;
+	height: 98%;
+	background: black;
+	border: 5px solid #5DA423;
+	float: left;	
+}
+
+
+#master{
+	background: black;
+	border: 5px solid #5DA423;
+	width: 900px;
+	height: 700px;
+
+}
+
+
+td, th {
+    border: 5px solid #5DA423;
+}
+
+/*botones*/
+#home{
+	position: fixed;
+	bottom: 1%;
+	right: 1%;
+	margin: 0px;
+}
+
+#cerrar{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin-top: -0px;
+    height: 50px;
+    display: block;
+    background-repeat: no-repeat;
+}
