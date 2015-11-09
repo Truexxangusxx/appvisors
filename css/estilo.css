@@ -37,12 +37,7 @@ td, th {
 }
 
 /*botones*/
-#home{
-	position: fixed;
-	bottom: 1%;
-	right: 1%;
-	margin: 0px;
-}
+
 
 #cerrar{
     position: absolute;
