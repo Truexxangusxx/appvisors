@@ -1,111 +1,73 @@
-
-
-
-var tstampActual = 0;
-var comprobar = 5000;
-
-
-
-var tstampActual2 = 0;
-var comprobar2 = 3000;
-
-
-//--------temporizador div master -------------
-function actividad() {
-
-var tstamp = new Date().getTime();
-if (Math.abs(tstampActual - tstamp) > comprobar) {
-
-	
-	if ($('#master').is(':hidden')){
-		tstampActual = new Date().getTime();
-	}
-	else{
-		$("#alerta").dialog({autoOpen:false,modal: true, width: 'auto',
-			buttons: {
-		        "Permanecer": function() {
-		        	tstampActual = new Date().getTime();
-		          	$( this ).dialog( "close" );
-		        },
-		        Salir: function() {
-		        	tstampActual = new Date().getTime();
-		        	$("#master").dialog("close");
-		          	$( this ).dialog( "close" );
-	        	}
-	      	}
-		});
-		$(".ui-dialog-titlebar").hide();
-		$(".ui-dialog-content ui-widget-content").hide();
-		$("#alerta").dialog("open");
-		tstampActual2 = new Date().getTime();
-	}
-	
-
-
-} else {
-
-}
-}
-
-//--------temporizador de div de confirmacion--------------
-function actividad2() {
-
-var tstamp2 = new Date().getTime();
-if (Math.abs(tstampActual2 - tstamp2) > comprobar2) {
-
-	
-	if ($('#alerta').is(':hidden')){
-		
-	}
-	else{
-		$("#master").dialog("close");
-		$("#alerta").dialog("close");
-	}
-	
-
-
-} else {
-
-}
-}
-
-
-//----------dispara temporizadores------------
-window.addEventListener('load', function() {
-	
-	setInterval(actividad, comprobar);
-	setInterval(actividad2, comprobar2);
-});
-
-
-
-
-
-
-
 $(document).ready(function(){
 //div central --------------------------------------------------------------
-$("#home").click(function(){
-    $("#master").dialog("open");
-    $(".ui-dialog-titlebar").hide();
-    tstampActual = new Date().getTime();
-    tstampActual2 = new Date().getTime();
-});
+	$("#master").dialog({autoOpen:false,modal: true, width: 'auto'});
 
-$("#master").dialog({autoOpen:false,modal: true, width: 'auto'});
+	$("#home").click(function(){
+	    $("#master").dialog("open");
+	    $(".ui-dialog-titlebar").hide();
+	    tstampActual = new Date().getTime();
+	    tstampActual2 = new Date().getTime();
+	});
 
-
-$("#cerrar").click(function(){
-    $("#master").dialog("close");
-});
+	$("#cerrar").click(function(){
+	    $("#master").dialog("close");
+	});
 //--------------------------------------------------------------------------
 
 
-		$('#abrir_catalogo').click(function efecto(){
 
-			$('#catalogo').animate({'left':0+'%'});
-			$('#catalogo').fadeToggle();
-		});
+	$('#abrir_catalogo').click(function efecto(){
+		$('#catalogo').animate({'left':0+'%'});
+		$('#catalogo').fadeToggle();
+	});
+
+
+
+//----Temporizador---------------------------------------------
+	$("#temporizador").dialog({
+		autoOpen:false,modal: true, open: function( event, ui ) {
+			setTimeout( function(){ 
+			    if (!$('#temporizador').is(':hidden')){
+		    		location.reload();
+		    		clearInterval(timer);
+   					timer = setInterval(temporizador, 4000);
+		    	}
+			}  , 3000 );
+		}
+	});
+    $(document).mousemove(function(e){
+    	console.log("se movio temporizador");
+    	if (!$('#temporizador').is(':hidden')){
+    		$("#temporizador").dialog("close");
+    		clearInterval(timer);
+   			timer = setInterval(temporizador, 4000);
+    	}
+    });
+    function temporizador(){
+		if ($('#galeria').is(':hidden')){
+			$("#temporizador").dialog('open');
+		    $(".ui-dialog-titlebar").hide();
+		    $("#temporizador").parent("div").css("width", "0px");
+		    $("#temporizador").parent("div").css("height", "0px");
+		}
+    }
+    var timer = setInterval(temporizador, 4000);
+//--------------------------------------------------------------
+
+
+//----galeria---------------------------------------------------
+	//$("#galeria").slideUp( 300 ).delay( 800 ).fadeIn( 400 );
+	$("#galeria").click(function(e){
+		console.log("se movio galeria");
+   		$("#galeria").hide(function(){
+   			clearInterval(timer);
+   			timer = setInterval(temporizador, 4000);
+   		});
+   		
+    });
+//--------------------------------------------------------------
+
+
 
 
 });
