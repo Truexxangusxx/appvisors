@@ -6,40 +6,22 @@ background: black;
 }
 
 .div {
-	width: 99%;
-	height: 99%;
+	width: 100%;
+	height: 100%;
 	background: black;
-	border: 1% solid #5DA423;
 	position: absolute;
-	top: 0%;
-
-}
-#div_lateral{
-	width: 7%;
-	height: 98%;
-	background: black;
-	border: 5px solid #5DA423;
-	float: left;	
+	top: 0px;
 }
 
 
-#master{
-	background: black;
-	border: 5px solid #5DA423;
-	width: 900px;
-	height: 700px;
-
-}
-
-
-td, th {
-    border: 5px solid #5DA423;
+td{
+    border: 5px solid white;
+    
+    
 }
 
 /*botones*/
-
-
-#cerrar{
+.cerrar_esquina{
     position: absolute;
     right: 0px;
     top: 0px;
@@ -54,7 +36,7 @@ td, th {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: green;
+	background: #BFD702;
 	top: 0px;
 }
 #galeria div{
@@ -63,7 +45,22 @@ td, th {
 
 .menu img{
 	width: 100%;
-	height: 25%;
+	height: 24%;
 }
 
+
+.img_catalogo{
+
+}
+
+.img_catalogo:hover{
+	opacity: .5;
+    filter: alpha(opacity=50); 
+    -webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+	z-index: -50;
+}
 

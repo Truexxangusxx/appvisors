@@ -1,26 +1,55 @@
+var bPreguntar = true;
+     
+    window.onbeforeunload = preguntarAntesDeSalir;
+     
+    function preguntarAntesDeSalir()
+    {
+      if (bPreguntar){
+      	return "desea salir de la pagina";
+      }
+        
+    }
+
+
+
+
+
+
+
 $(document).ready(function(){
 //div central --------------------------------------------------------------
-	$("#master").dialog({autoOpen:false,modal: true, width: 'auto'});
 
-	$("#home").click(function(){
-	    $("#master").dialog("open");
-	    $(".ui-dialog-titlebar").hide();
-	    tstampActual = new Date().getTime();
-	    tstampActual2 = new Date().getTime();
-	});
 
-	$("#cerrar").click(function(){
-	    $("#master").dialog("close");
-	});
+
 //--------------------------------------------------------------------------
 
 
+//----Visor web---------------------------------------------
+	$('#abrir_catalogo1').click(function efecto(){
+		$(this).focusout();
+		$("#catalogo").show();
 
-	$('#abrir_catalogo').click(function efecto(){
-		$('#catalogo').animate({'left':0+'%'});
-		$('#catalogo').fadeToggle();
+	});
+	$('#abrir_catalogo2').click(function efecto(){
+		$("#catalogo").show();
+	});
+	$('#abrir_catalogo3').click(function efecto(){
+		$("#catalogo").show();
+	});
+	$('#abrir_catalogo4').click(function efecto(){
+		$("#catalogo").show();
+	});
+	$('#abrir_login').click(function efecto(){
+		$("#login").show();
+	});
+	$('#abrir_saga').click(function efecto(){
+		$("#saga").show();
 	});
 
+	$(".cerrar_esquina").click(function(){
+	    $(this).parent('div').hide();
+	});
+//-------------------------------------------------------------
 
 
 //----Temporizador---------------------------------------------
@@ -28,7 +57,10 @@ $(document).ready(function(){
 		autoOpen:false,modal: true, open: function( event, ui ) {
 			setTimeout( function(){ 
 			    if (!$('#temporizador').is(':hidden')){
-		    		location.reload();
+		    		//location.reload();
+		    		$('.div').hide();
+		    		$("#galeria").show();
+		    		$("#temporizador").dialog('close');
 		    		clearInterval(timer);
    					timer = setInterval(temporizador, 4000);
 		    	}
@@ -36,7 +68,6 @@ $(document).ready(function(){
 		}
 	});
     $(document).mousemove(function(e){
-    	console.log("se movio temporizador");
     	if (!$('#temporizador').is(':hidden')){
     		$("#temporizador").dialog("close");
     		clearInterval(timer);
@@ -58,14 +89,22 @@ $(document).ready(function(){
 //----galeria---------------------------------------------------
 	//$("#galeria").slideUp( 300 ).delay( 800 ).fadeIn( 400 );
 	$("#galeria").click(function(e){
-		console.log("se movio galeria");
    		$("#galeria").hide(function(){
    			clearInterval(timer);
    			timer = setInterval(temporizador, 4000);
+   			
    		});
-   		
+   		$("#saga iframe").attr( 'src', function ( i, val ) { return val; });
     });
 //--------------------------------------------------------------
+
+
+//----detectar flash -----------------------------------------------
+
+//-----------------------------------------------------------------
+
+
+
 
 
 

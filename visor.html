@@ -3,10 +3,10 @@
 
 <head>
 <title>Saga Falabella</title>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.css">
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/angular.min.js"></script>
 <link rel="stylesheet" href="css/estilo.css">
 <script src="js/app.js"></script>
 
@@ -15,37 +15,43 @@
 
 
 
-<!--ventanas invisibles-->
+<!--catalogos-->
 <div id="catalogo" class="div" style="display:none">
-		<iframe src="http://www.falabella.com.pe/static/staticContent/common/HET/HET-eCatalogFPE.html?sku=FPE_MAQUINAS_10-15" width="100%" height="450px" name="formularios" frameborder="0" allowfullscreen></iframe>
+	<a class="cerrar_esquina" href="#"><img width="50" src="img/cerrar.png"></a>
+		<iframe src="http://www.falabella.com.pe/static/staticContent/common/HET/HET-eCatalogFPE.html?sku=FPE_MAQUINAS_10-15" width="100%" height="99%" name="formularios" frameborder="0" allowfullscreen></iframe>
 </div>
 
-
-<div  id="master">
-<a id="cerrar" href="#"><img width="50" src="img/cerrar.png"></a>
-		<iframe id="master_frame" src="https://www.google.com.pe/" width="1800" height="800" name="formularios" frameborder="0" allowfullscreen></iframe>
+<!--login-->
+<div id="login" class="div" style="display:none">
+	<a class="cerrar_esquina" href="#"><img width="50" src="img/cerrar.png"></a>
+		<iframe src="https://sso.cisco.com/autho/forms/CDClogin.html" width="100%" height="99%" name="formularios" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<!--saga principal-->
+<div id="saga" class="div" style="display:none">
+	<a class="cerrar_esquina" href="#"><img width="50" src="img/cerrar.png"></a>
+		<iframe src="http://www.falabella.com.pe/falabella-pe/" width="100%" height="99%" name="formularios" frameborder="0" allowfullscreen></iframe>
+</div>
 
 
 <!--tabla para el layout-->
 <table style="height:100%; width: 100%">
 <tr>
-<td style="width:45%;" align="center">
-	<a id="btnsaga" href="#"><img src="img/saga1.jpg" width="80%"></a>
+<td style="width:45%; opacity: .5; filter: alpha(opacity=50);" align="center">
+	<a id="abrir_saga" href="#"><img src="img/saga1.jpg" width="80%"></a>
 </td>
-<td style="width:45%;" align="center">
-	<a id="btncmr" href="#"><img src="img/cmr1.jpg" width="80%"></a>
+<td style="width:45%; opacity: .5; filter: alpha(opacity=50);" align="center">
+	<a id="abrir_cmr" href="#"><img src="img/cmr1.jpg" width="80%"></a>
 </td>
 <td class="menu" style="width:10%; color: white; text-align: center" >
 	<div style="width:100%; height:80%;">
-	<a id="abrir_catalogo" href="#"><img src="img/catalogo1.jpg"></a>
-	<a id="abrir_catalogo" href="#"><img src="img/catalogo2.jpg"></a>
-	<a id="abrir_catalogo" href="#"><img src="img/catalogo3.jpg"></a>
-	<a id="abrir_catalogo" href="#"><img src="img/catalogo4.jpg"></a>
+	<a id="abrir_catalogo1" href="#"><img class="img_catalogo" src="img/catalogo1.jpg"></a>
+	<a id="abrir_catalogo2" href="#"><img class="img_catalogo" src="img/catalogo2.jpg"></a>
+	<a id="abrir_catalogo3" href="#"><img class="img_catalogo" src="img/catalogo3.jpg"></a>
+	<a id="abrir_catalogo4" href="#"><img class="img_catalogo" src="img/catalogo4.jpg"></a>
 	</div>
-	<div>
-		<a href="#" id="home"><img width="100px" src="http://apartments.democratandchronicle.com/img/icon-home.png" class="img-circle"></a>
+	<div style="width:100%;" >
+		<a href="#" id="abrir_login"><img src="img/user.png" style="width: 100%; height: 15%;"></a>
 	</div>
 </td>
 </tr>
@@ -55,7 +61,7 @@
 
 
 
-<!-- tabla para el layout -->
+<!-- galeria de imagenes y videos -->
 <div id="galeria">
 	<div id="g1"><img src="galeria/img1.jpg"></div>
 	<div id="g2"><img src="galeria/img2.jpg"></div>
