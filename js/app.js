@@ -1,14 +1,13 @@
 var bPreguntar = true;
      
-    window.onbeforeunload = preguntarAntesDeSalir;
+window.onbeforeunload = preguntarAntesDeSalir;
      
-    function preguntarAntesDeSalir()
-    {
-      if (bPreguntar){
-      	return "desea salir de la pagina";
-      }
-        
-    }
+function preguntarAntesDeSalir()
+{
+	if (bPreguntar){
+		return "desea salir de la pagina";
+	}
+}
 
 
 
@@ -20,15 +19,13 @@ $(document).ready(function(){
 //div central --------------------------------------------------------------
 
 
-
 //--------------------------------------------------------------------------
 
 
 //----Visor web---------------------------------------------
 	$('#abrir_catalogo1').click(function efecto(){
-		$(this).focusout();
 		$("#catalogo").show();
-
+		//$("#catalogo").css('z-index','2');
 	});
 	$('#abrir_catalogo2').click(function efecto(){
 		$("#catalogo").show();
