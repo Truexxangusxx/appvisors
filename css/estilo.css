@@ -5,6 +5,9 @@ height:100%;
 background: black;
 }
 
+.slideshow { height: 232px; width: 232px; margin: auto }
+.slideshow img { padding: 15px; border: 1px solid #ccc; background-color: #eee; }
+
 div{z-index: 2;}
 
 .div {
@@ -70,7 +73,7 @@ td{
 /*menu lateral ***********/
 .menu img{
 	width: 100%;
-	height: 24%;
+	height: 43.9%;
 }
 .menu img{
     position: relative;
@@ -105,3 +108,25 @@ td{
 #banner_2{
 	right: 16%; 
 }
+
+/*texto sobre las imagenes*/
+
+.text {
+	position: absolute;
+	padding-top: 30%;
+	width: 100%;
+	height: 70%;
+    color:white;
+    font-weight: bold;
+    z-index: 1;
+    opacity: 0;
+    background-color:rgba(0,0,0,0.5);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.text:hover {
+    opacity:1;
+}
+
